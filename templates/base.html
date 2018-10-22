@@ -2,19 +2,50 @@
 <html>
     <head>
             <title>{{tab_title}}</title>
+            <style>
+                .success {
+                    color: blue;
+                }
+                .error {
+                    color: red;
+                }
+            </style>
     </head>
-    <header>
-        <nav>
+    <header>  
+        <nav>    
+            <a href="./">
+                <u>Home</u>
+            </a>
+            &ensp;
             <a href="./blog">
-                <u>Main Blog Page</u>
+                <u>All Blogs Posts</u>
             </a>
             &ensp;
             <a href="./newpost">
                 <u>Add a Blog Entry</u>
             </a>
         </nav>
+        <nav>
+            <a href="./login">
+                <u>Login</u>
+            </a>
+            &ensp;
+            <a href="./logout">
+                <u>Logout</u>
+            </a>
+        </nav>         
     </header>
     <body>
+
+        {% with messages = get_flashed_messages(with_categories=True) %}
+        <p>
+            {% for category, message in messages %}
+                <div class="{{category}}">
+                    {{message}}
+                </div>
+            {% endfor %}
+        </p>
+        {% endwith %}
 
         {% block content %}
         {% endblock %}

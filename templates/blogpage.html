@@ -9,5 +9,11 @@
 <p>
     {{blog_body}}
 </p>
+<p>
+    <em>Written by</em>
+    <a href="./blog?user={{blog_owner_id}}">
+        <em>{{username}}</em>
+    </a>
+</p>
 
 {% endblock %}

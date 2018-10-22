@@ -3,10 +3,10 @@
 {% block content %}
 
 <h1 style="text-align:center">
-     <b>All Blogs</b>
+     <b>Blog Posts!</b>
 </h1>
 
-{% for blog in blogs %}
+{% for blog in user_blogs %}
 <h2>
     <a href="./blog?id={{blog.id}}">
         <u>{{blog.title}}</u>
@@ -15,10 +15,10 @@
 <p>
     {{blog.body}}
 </p>
-<p>
-    <em>Written by <a href="/blog?user={{blog.owner_id}}">{{blog.owner.username}}</a></em>
-</p>
+<em>written by <a href="./blog?user={{user_id}}">{{username}}</a></em>
 <hr>
 {% endfor %}
+
+
 
 {% endblock %}
